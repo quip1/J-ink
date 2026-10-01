@@ -97,6 +97,18 @@ jobs:
           name: jink-tools-apks
           path: apps/android/jink-tools/
 
+      # Without the secrets, park the build on a hidden ref (not a branch) so it can be fetched
+      # with plain git and signed elsewhere with the permanent key.
+      - name: Stage unsigned build
+        if: env.SIGNED != 'true'
+        run: |
+          export GIT_INDEX_FILE="$RUNNER_TEMP/staging-index"
+          git add -f apps/android/jink-tools
+          tree=$(git write-tree)
+          commit=$(git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit-tree "$tree" -m "Unsigned J-ink Tools build from ${GITHUB_SHA::7}")
+          git push -f origin "$commit:refs/ci/jink-tools-apks"
+
       - name: Commit APKs
         if: env.SIGNED == 'true'
         run: |
