@@ -1,0 +1,10 @@
+plugins { id 'com.android.application' }
+apply from: rootProject.file('app.gradle')
+android {
+  namespace 'dev.jacob.journal'
+  defaultConfig {
+    applicationId 'dev.jacob.journal'
+    versionCode 1
+    versionName '1.0'
+  }
+}

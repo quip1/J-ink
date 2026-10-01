@@ -9,3 +9,7 @@ build/
 .dart_tool/
 bin/
 obj/
+
+# Android Studio / local SDK
+local.properties
+.idea/

@@ -1,0 +1,23 @@
+// Shared Android config for every app module. Each module's build.gradle applies the
+// application plugin, then this file, then sets its own namespace and version.
+android {
+  compileSdk 34
+  defaultConfig {
+    minSdk 26
+    targetSdk 34
+  }
+  compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+  buildTypes {
+    release {
+      minifyEnabled true
+      shrinkResources true
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), rootProject.file('proguard-rules.pro')
+      signingConfig signingConfigs.debug
+    }
+  }
+  lint { abortOnError false; checkReleaseBuilds false }
+}
+dependencies {
+  implementation project(':common')
+  testImplementation 'junit:junit:4.13.2'
+}

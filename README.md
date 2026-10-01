@@ -24,6 +24,19 @@ Slate and Folio are built for **arm64** devices and include the Onyx pen SDK, so
 | **Ferry** | [`apps/windows/Ferry.exe`](apps/windows/Ferry.exe) | 25 MB | Sends files between Android and Windows over Bluetooth and peer-to-peer (no cable or internet needed). Pair it with `Ferry.apk` on the device. |
 | **Lanternwild** | [`apps/windows/Lanternwild.exe`](apps/windows/Lanternwild.exe) | 29 MB | Windows version of Lanternwild (needs the Microsoft Edge WebView2 runtime, which is preinstalled on Windows 10/11). |
 
+### J-ink Tools (source only, build them in Android Studio)
+
+Thirteen more apps that share one e-ink UI library. There are no APKs for these yet: open
+[`src/jink-tools`](src/jink-tools) in Android Studio to build them.
+
+| Group | Apps |
+|---|---|
+| Print | **Inkprint**: printable PDF templates (planners, note paper, D&D sheets), and prints any PDF/image/text file |
+| D&D | **Dice**, **Initiative** (combat tracker), **Character Sheet**, **DM Tools** (NPC, tavern, loot and plot generators) |
+| Reading & focus | **Focus** (Pomodoro timer and desk clock), **Read Log** (reading tracker) |
+| Writing | **Typewriter** (distraction-free drafts), **Journal** (daily entries with prompts) |
+| Games | **Sudoku**, **Solitaire**, **Chess** (vs computer or two players), **Word Search** |
+
 ## Installing
 
 **Android APKs.** Copy the `.apk` to your device (or download it there), open it, and allow
@@ -60,6 +73,7 @@ d2053a8ef09584f60fa956f97cc05d8b191fbdd92a6a00fec7c3ba13d72eaa14  apps/android/M
 | Slate + Folio | [`src/slate-folio`](src/slate-folio) | Android/Gradle. One project with two flavors (`slate`, `folio`) |
 | Ferry | [`src/ferry`](src/ferry) | Android (Kotlin) + Windows (.NET 8). See its [README](src/ferry/README.md) and [PROTOCOL](src/ferry/PROTOCOL.md) |
 | Monotone | [`src/monotone`](src/monotone) | Flutter (Android + Windows). See its [README](src/monotone/README.md) |
+| J-ink Tools (13 apps) | [`src/jink-tools`](src/jink-tools) | Android (Java), one Gradle project with a module per app. See its [README](src/jink-tools/README.md) |
 
 **Signing keys are not in this repo.** Release builds need your own keystore: Monotone reads it from
 `android/key.properties`, and Ferry expects `android/ferry.jks`. Keep your original keystores backed up
@@ -72,4 +86,5 @@ apps/
   android/   built APKs
   windows/   built EXEs
 src/         source code for each app
+  jink-tools/  the 13 J-ink Tools apps (one Gradle project)
 ```
