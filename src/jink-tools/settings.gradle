@@ -1,0 +1,15 @@
+pluginManagement { repositories { google(); mavenCentral(); gradlePluginPortal() } }
+dependencyResolutionManagement { repositories { google(); mavenCentral() } }
+rootProject.name = "JinkTools"
+
+include ':common'
+// Print
+include ':inkprint'
+// D&D
+include ':dice', ':initiative', ':charsheet', ':dmgen'
+// Reading & focus
+include ':focus', ':readlog'
+// Writing
+include ':typewriter', ':journal'
+// Games
+include ':sudoku', ':solitaire', ':chess', ':wordsearch'
