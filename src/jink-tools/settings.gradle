@@ -13,3 +13,5 @@ include ':focus', ':readlog'
 include ':typewriter', ':journal'
 // Games
 include ':sudoku', ':solitaire', ':chess', ':wordsearch'
+// Files
+include ':filer'

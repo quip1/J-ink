@@ -76,6 +76,7 @@ jobs:
           solitaire Solitaire
           chess Chess
           wordsearch WordSearch
+          filer Filer
           EOF
           {
             echo "# J-ink Tools APKs"

@@ -1,6 +1,6 @@
 # J-ink Tools
 
-Thirteen small Android apps for e-ink devices, in one Gradle project. They share an e-ink UI library
+Fourteen small Android apps for e-ink devices, in one Gradle project. They share an e-ink UI library
 (`common/`), and each app builds its own APK. Like Font Drop, Slate and Folio, they're plain Java on
 the Android framework: no AndroidX, no other dependencies.
 
@@ -22,6 +22,7 @@ work on any Android 8.0+ device.
 | Games | **Solitaire** | `solitaire` | Klondike, draw 1 or 3. Tap a card, then where it goes (no dragging); tap twice to send it home. Undo, auto-finish. |
 | Games | **Chess** | `chess` | Play the computer (four levels) as either colour, or two players. Full rules, including castling, en passant, promotion, and the draw rules. Move list, undo, flip. |
 | Games | **Word Search** | `wordsearch` | Eight themes, three sizes. Tap the first letter of a word, then its last. |
+| Files | **Filer** | `filer` | File manager: browse, rename, copy, move (pick files, go to the destination, tap Paste), delete, share, open with other apps. Zip files: create, browse inside, extract, add, rename and remove entries. Built-in text editor; tap an APK to install it. |
 
 ## E-ink rules every app follows
 
