@@ -1,0 +1,11 @@
+# Signing keys and their passwords must never be committed (this repo is public).
+*.jks
+*.keystore
+key.properties
+
+# Build output
+build/
+.gradle/
+.dart_tool/
+bin/
+obj/
