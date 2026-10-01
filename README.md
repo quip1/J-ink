@@ -24,10 +24,11 @@ Slate and Folio are built for **arm64** devices and include the Onyx pen SDK, so
 | **Ferry** | [`apps/windows/Ferry.exe`](apps/windows/Ferry.exe) | 25 MB | Sends files between Android and Windows over Bluetooth and peer-to-peer (no cable or internet needed). Pair it with `Ferry.apk` on the device. |
 | **Lanternwild** | [`apps/windows/Lanternwild.exe`](apps/windows/Lanternwild.exe) | 29 MB | Windows version of Lanternwild (needs the Microsoft Edge WebView2 runtime, which is preinstalled on Windows 10/11). |
 
-### J-ink Tools (source only, build them in Android Studio)
+### J-ink Tools
 
-Thirteen more apps that share one e-ink UI library. There are no APKs for these yet: open
-[`src/jink-tools`](src/jink-tools) in Android Studio to build them.
+Thirteen more apps that share one e-ink UI library. Their APKs are in
+[`apps/android/jink-tools/`](apps/android/jink-tools) (checksums are in that folder's README), and
+their source is in [`src/jink-tools`](src/jink-tools).
 
 | Group | Apps |
 |---|---|
@@ -84,6 +85,7 @@ somewhere private. Android only installs an update if it's signed with the same 
 ```
 apps/
   android/   built APKs
+    jink-tools/  APKs for the 13 J-ink Tools apps
   windows/   built EXEs
 src/         source code for each app
   jink-tools/  the 13 J-ink Tools apps (one Gradle project)
