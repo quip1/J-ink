@@ -7,12 +7,25 @@ android {
     targetSdk 34
   }
   compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+  // The permanent release key comes from environment variables (GitHub secrets in CI), so it is
+  // never stored in this public repo. Without them, release builds fall back to the debug key.
+  signingConfigs {
+    jink {
+      def ks = System.getenv('JINK_KEYSTORE')
+      if (ks) {
+        storeFile file(ks)
+        storePassword System.getenv('JINK_KEYSTORE_PASSWORD')
+        keyAlias System.getenv('JINK_KEY_ALIAS')
+        keyPassword System.getenv('JINK_KEY_PASSWORD')
+      }
+    }
+  }
   buildTypes {
     release {
       minifyEnabled true
       shrinkResources true
       proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), rootProject.file('proguard-rules.pro')
-      signingConfig signingConfigs.debug
+      signingConfig System.getenv('JINK_KEYSTORE') ? signingConfigs.jink : signingConfigs.debug
     }
   }
   lint { abortOnError false; checkReleaseBuilds false }
