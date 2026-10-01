@@ -18,8 +18,7 @@ Slate and Folio are built for **arm64** devices and include the Onyx pen SDK, so
 
 | App | File | Size | Description |
 |---|---|---|---|
-| **Ferry** | [`apps/windows/Ferry.exe`](apps/windows/Ferry.exe) | 25 MB | Windows companion app (.NET 8). |
-| **Lanternwild 3D** | [`apps/windows/Lanternwild3D.exe`](apps/windows/Lanternwild3D.exe) | 29 MB | Windows app (requires the Microsoft Edge WebView2 runtime, which is preinstalled on Windows 10/11). |
+| **Ferry** | [`apps/windows/Ferry.exe`](apps/windows/Ferry.exe) | 25 MB | Sends files between Android and Windows over Bluetooth and peer-to-peer (no cable or internet needed). |
 
 ## Installing
 
@@ -43,7 +42,6 @@ Compare these against your download to make sure the file wasn't corrupted:
 e34b2b122f25ae7296da2d86a7b90f5095c9cf2ed319aa7aef5fb73c89fd1e37  apps/android/Slate.apk
 07200961c265b167fa308e59b617e7b6477a4e66a61ffc8ac8c7c9ce39c87fd6  apps/android/Folio.apk
 8646273c3b93eec2a5f250aba376a0cd9217bf4a43063315c42e45ffe76747b0  apps/windows/Ferry.exe
-1b5ddf8eff571d672bec44013582aa63a31ddaef918dd5d03de6d6fa5ea70710  apps/windows/Lanternwild3D.exe
 ```
 
 ## Repository layout
