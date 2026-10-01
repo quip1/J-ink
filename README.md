@@ -12,6 +12,7 @@ Jacob's e-ink apps: a collection of helpful apps for e-ink devices.
 | **Slate** | [`apps/android/Slate.apk`](apps/android/Slate.apk) | `dev.slate.notes` | 3.7 MB | Handwritten notes with low-latency Onyx/Boox pen support. |
 | **Folio** | [`apps/android/Folio.apk`](apps/android/Folio.apk) | `dev.slate.reader` | 9.9 MB | Document/PDF reader with Onyx/Boox pen support. |
 | **Monotone** | [`apps/android/Monotone.apk`](apps/android/Monotone.apk) | `com.jacob.monotone` | 19 MB | Audiobook player. Version 1.0.3; this build is labeled for the NoteAir6C. |
+| **Ferry** | [`apps/android/Ferry.apk`](apps/android/Ferry.apk) | `dev.onyxbox.ferry` | 136 KB | Android side of Ferry: sends files to and from the Windows app over Bluetooth and peer-to-peer. |
 
 Slate and Folio are built for **arm64** devices and include the Onyx pen SDK, so pen features work best on Boox devices.
 
@@ -19,7 +20,7 @@ Slate and Folio are built for **arm64** devices and include the Onyx pen SDK, so
 
 | App | File | Size | Description |
 |---|---|---|---|
-| **Ferry** | [`apps/windows/Ferry.exe`](apps/windows/Ferry.exe) | 25 MB | Sends files between Android and Windows over Bluetooth and peer-to-peer (no cable or internet needed). |
+| **Ferry** | [`apps/windows/Ferry.exe`](apps/windows/Ferry.exe) | 25 MB | Sends files between Android and Windows over Bluetooth and peer-to-peer (no cable or internet needed). Pair it with `Ferry.apk` on the device. |
 
 ## Installing
 
@@ -43,6 +44,7 @@ Compare these against your download to make sure the file wasn't corrupted:
 e34b2b122f25ae7296da2d86a7b90f5095c9cf2ed319aa7aef5fb73c89fd1e37  apps/android/Slate.apk
 07200961c265b167fa308e59b617e7b6477a4e66a61ffc8ac8c7c9ce39c87fd6  apps/android/Folio.apk
 d2053a8ef09584f60fa956f97cc05d8b191fbdd92a6a00fec7c3ba13d72eaa14  apps/android/Monotone.apk
+438288aead47e508bf43b4397399a2f0acd313b9517e29d053fc8250b988f15d  apps/android/Ferry.apk
 8646273c3b93eec2a5f250aba376a0cd9217bf4a43063315c42e45ffe76747b0  apps/windows/Ferry.exe
 ```
 
