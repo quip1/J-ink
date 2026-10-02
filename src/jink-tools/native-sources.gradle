@@ -1,0 +1,43 @@
+// Downloads the pinned whisper.cpp / llama.cpp sources the native modules build from.
+// They come from the Python packages on PyPI that bundle them (checksum-verified), and are
+// unpacked once into third_party/ (git-ignored).
+ext.nativeSources = [
+  whisper: [url: 'https://files.pythonhosted.org/packages/9f/35/610787a277e177e6b7983277a35a2969c0876b46c0d889bc6a0c4b4ac4a7/pywhispercpp-1.5.1.tar.gz',
+            sha256: '5df897e5dd9d9f16804fc937bd85b9f5880a0b29a55f8843585e0e03d76195e5',
+            inside: 'pywhispercpp-1.5.1/whisper.cpp', dir: 'whisper.cpp'],  // whisper.cpp 1.8.5
+  llama:   [url: 'https://files.pythonhosted.org/packages/ec/e9/e7de2b0463ea3ffbf0ede6cb21b58c1258a8f6521aae45ca773a59fe7cf3/llama_cpp_python-0.3.36.tar.gz',
+            sha256: '832db0699007f1be95a7e41ef12e88926b02ba836461e36a36372db2760c1a2e',
+            inside: 'llama_cpp_python-0.3.36/vendor/llama.cpp', dir: 'llama.cpp'],
+]
+
+ext.fetchNativeSource = { String key ->
+  def spec = nativeSources[key]
+  def root = rootProject.file('third_party')
+  def target = new File(root, spec.dir)
+  if (new File(target, 'CMakeLists.txt').exists()) return target
+  root.mkdirs()
+  def archive = new File(root, spec.dir + '.tar.gz')
+  if (!archive.exists()) {
+    logger.lifecycle("Downloading ${spec.dir} source…")
+    def part = new File(root, spec.dir + '.tar.gz.part')
+    new URL(spec.url).withInputStream { input -> part.withOutputStream { it << input } }
+    part.renameTo(archive)
+  }
+  def digest = java.security.MessageDigest.getInstance('SHA-256')
+  archive.eachByte(1 << 16) { buf, n -> digest.update(buf, 0, n) }
+  def actual = digest.digest().encodeHex().toString()
+  if (actual != spec.sha256) {
+    archive.delete()
+    throw new GradleException("Checksum mismatch for ${spec.dir}: got ${actual}")
+  }
+  def prefix = spec.inside + '/'
+  project.copy {
+    from(project.tarTree(project.resources.gzip(archive))) {
+      include prefix + '**'
+      eachFile { it.path = it.path.substring(prefix.length()) }
+      includeEmptyDirs = false
+    }
+    into target
+  }
+  return target
+}

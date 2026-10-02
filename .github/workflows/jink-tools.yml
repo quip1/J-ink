@@ -85,6 +85,7 @@ jobs:
           feeds Feeds
           weather Weather
           flashcards Flashcards
+          scribe Scribe
           EOF
           {
             echo "# J-ink Tools APKs"

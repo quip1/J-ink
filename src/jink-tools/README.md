@@ -1,8 +1,9 @@
 # J-ink Tools
 
-Twenty-two small Android apps for e-ink devices, in one Gradle project. They share an e-ink UI library
+Twenty-three small Android apps for e-ink devices, in one Gradle project. They share an e-ink UI library
 (`common/`), and each app builds its own APK. Like Font Drop, Slate and Folio, they're plain Java on
-the Android framework: no AndroidX, no other dependencies.
+the Android framework: no AndroidX, no other dependencies. The one exception is Scribe, which builds
+whisper.cpp and llama.cpp into the app so its AI runs on the device (see [On-device AI](#on-device-ai-scribe)).
 
 Designed for the **Boox Note Air** (tablet layout) and the **Boox Palma** (phone layout). They should
 work on any Android 8.0+ device.
@@ -31,6 +32,46 @@ work on any Android 8.0+ device.
 | Reading & listening | **Feeds** | `feeds` | RSS/Atom reader. Saves each article as clean text when it updates, so you can read offline a page at a time (volume keys). Add a feed or any website. |
 | Reading & listening | **Weather** | `weather` | Current weather, next hours and the week, from Open-Meteo (free, no account). Several places, °C or °F. |
 | Study | **Flashcards** | `flashcards` | Spaced-repetition decks (like Anki): cards you know come back less often. Import cards from CSV/TSV. |
+| AI (on-device) | **Scribe** | `scribe` | Records lectures, meetings or notes, then transcribes them with Whisper, summarises them and answers questions about them with a small language model, all on the device. Reads transcripts and summaries aloud. Also transcribes audio shared from other apps. |
+
+## On-device AI (Scribe)
+
+Scribe runs two open-source AI engines inside the app, so recordings never leave the device:
+
+- **[whisper.cpp](https://github.com/ggml-org/whisper.cpp)** turns speech into text (OpenAI's
+  Whisper models). Module `aiwhisper`.
+- **[llama.cpp](https://github.com/ggml-org/llama.cpp)** runs a small chat model (Qwen2.5 Instruct)
+  for summaries and questions. Module `aillama`.
+
+Both are C++ libraries. Each module has a small JNI bridge (`src/main/cpp/*_jni.cpp`) and a Java
+class (`Whisper`, `Llama`) that the app calls. The C++ source isn't in this repo: on the first build,
+`native-sources.gradle` downloads pinned releases, checks their SHA-256 and unpacks them into
+`third_party/` (git-ignored). The two libraries ship different versions of their shared math library
+(ggml), so each is linked into its own `.so` with its symbols hidden, and they can't clash.
+
+**Models** aren't in the APK either. On first use the Models screen downloads one speech model and
+one language model from Hugging Face into the app's folder (`Android/data/dev.jacob.scribe/files/models`).
+Downloads resume if interrupted. You can also import your own `.bin` (Whisper) or `.gguf` (llama.cpp)
+file.
+
+| Model | Size | Notes |
+|---|---|---|
+| Whisper base | 60 MB | Fast; fine for clear speech |
+| Whisper small | 190 MB | Good default for lectures and meetings |
+| Whisper medium | 540 MB | Most accurate, slowest |
+| Qwen2.5 0.5B | 400 MB | Quick, simple summaries |
+| Qwen2.5 1.5B | 1.1 GB | Good default |
+| Qwen2.5 3B | 2.1 GB | Best answers; needs about 3 GB free RAM |
+
+**Speed.** The Boox Note Air 6C has a Qualcomm Dragonwing Q6690 (6 GB RAM). Scribe
+runs the models on the CPU with ARM's dot-product instructions, using 4 threads. Long recordings are
+transcribed in 10-minute windows, and long transcripts are summarised part by part and then merged,
+so they fit in memory and in the model's context. The chip's Hexagon NPU isn't used yet; ggml has an
+experimental Hexagon backend that may make that possible later.
+
+**Building** Scribe needs the Android NDK and CMake 3.22 (install both from Android Studio's SDK
+Manager). It's built for 64-bit ARM (`arm64-v8a`) only, which every current Boox device uses. Because
+Scribe's Java depends on the two libraries, check it with `./check.sh aiwhisper aillama scribe`.
 
 ## E-ink rules every app follows
 

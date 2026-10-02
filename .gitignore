@@ -13,3 +13,6 @@ obj/
 # Android Studio / local SDK
 local.properties
 .idea/
+
+# Native AI sources fetched at build time (see native-sources.gradle)
+src/jink-tools/third_party/

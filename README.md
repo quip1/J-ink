@@ -26,7 +26,7 @@ Slate and Folio are built for **arm64** devices and include the Onyx pen SDK, so
 
 ### J-ink Tools
 
-Twenty-two more apps that share one e-ink UI library. Their APKs are in
+Twenty-three more apps that share one e-ink UI library. Their APKs are in
 [`apps/android/jink-tools/`](apps/android/jink-tools) (checksums are in that folder's README), and
 their source is in [`src/jink-tools`](src/jink-tools).
 
@@ -41,6 +41,7 @@ their source is in [`src/jink-tools`](src/jink-tools).
 | Everyday | **Lists**, **Habits**, **Calc** (calculator and unit converter), **Timer** (stopwatch and countdowns) |
 | Reading & listening | **Speak** (reads text aloud), **Feeds** (RSS reader with offline articles), **Weather** |
 | Study | **Flashcards** (spaced repetition, CSV import) |
+| AI (on-device) | **Scribe**: records and transcribes speech, then summarises it and answers questions about it, all on the device; reads it aloud |
 
 ## Installing
 
@@ -78,7 +79,7 @@ d2053a8ef09584f60fa956f97cc05d8b191fbdd92a6a00fec7c3ba13d72eaa14  apps/android/M
 | Slate + Folio | [`src/slate-folio`](src/slate-folio) | Android/Gradle. One project with two flavors (`slate`, `folio`) |
 | Ferry | [`src/ferry`](src/ferry) | Android (Kotlin) + Windows (.NET 8). See its [README](src/ferry/README.md) and [PROTOCOL](src/ferry/PROTOCOL.md) |
 | Monotone | [`src/monotone`](src/monotone) | Flutter (Android + Windows). See its [README](src/monotone/README.md) |
-| J-ink Tools (22 apps) | [`src/jink-tools`](src/jink-tools) | Android (Java), one Gradle project with a module per app. See its [README](src/jink-tools/README.md) |
+| J-ink Tools (23 apps) | [`src/jink-tools`](src/jink-tools) | Android (Java), one Gradle project with a module per app. See its [README](src/jink-tools/README.md) |
 
 **Signing keys are not in this repo.** Release builds need your own keystore: Monotone reads it from
 `android/key.properties`, and Ferry expects `android/ferry.jks`. Keep your original keystores backed up
@@ -89,8 +90,8 @@ somewhere private. Android only installs an update if it's signed with the same 
 ```
 apps/
   android/   built APKs
-    jink-tools/  APKs for the 22 J-ink Tools apps
+    jink-tools/  APKs for the 23 J-ink Tools apps
   windows/   built EXEs
 src/         source code for each app
-  jink-tools/  the 22 J-ink Tools apps (one Gradle project)
+  jink-tools/  the 23 J-ink Tools apps (one Gradle project)
 ```

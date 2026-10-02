@@ -21,3 +21,5 @@ include ':lists', ':habits', ':calc', ':timer'
 include ':speak', ':feeds', ':weather'
 // Study
 include ':flashcards'
+// AI (on-device): native libraries and the app
+include ':aiwhisper', ':aillama', ':scribe'

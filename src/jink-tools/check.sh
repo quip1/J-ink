@@ -49,10 +49,13 @@ if [ $# -gt 0 ]; then MODULES=$(printf "%s\n" "$@" | grep -vx common || true); e
 fi
 
 failed=0
+# Modules see every module compiled before them (settings.gradle order), e.g. scribe uses aiwhisper.
+DEPS="$OUT/common"
 for m in $MODULES; do
   echo "== $m"
   main="$OUT/$m/main"
-  if ! compile "$main" "$ANDROID:$OUT/common" "$m/src/main/java"; then failed=1; continue; fi
+  if ! compile "$main" "$ANDROID:$DEPS" "$m/src/main/java"; then failed=1; continue; fi
+  DEPS="$DEPS:$main"
   if [ -d "$m/src/test/java" ]; then
     tests="$OUT/$m/test"
     if ! compile "$tests" "$main:$JUNIT" "$m/src/test/java"; then failed=1; continue; fi
