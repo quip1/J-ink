@@ -27,6 +27,7 @@ permanent J-ink Tools key, so future versions install as updates over these.
 | Reading | Feeds | [`Feeds.apk`](Feeds.apk) |
 | Weather | Weather | [`Weather.apk`](Weather.apk) |
 | Study | Flashcards | [`Flashcards.apk`](Flashcards.apk) |
+| AI | Scribe | [`Scribe.apk`](Scribe.apk) |
 
 ## Checksums (SHA-256)
 
@@ -46,6 +47,7 @@ c210c143c6d1aedce2f791aa50bfb906b96ed966622f315ed9783725f35d01db  Feeds.apk
 ec01102ba243c932c44f0e1dcbc25d2118a82b48383a51225a14cb4c6b176565  Journal.apk
 0e0459e98b384b37b4d604d71b1e73ab4545b9f9b42ad9fd8d3617a45bca338c  Lists.apk
 d938066f6d3c6c03acb1ca0236920a4244d354fad07208ad55383dac6a23dd0d  ReadLog.apk
+8300637973a7ec80bc4b57d0d34bd4ede699b0ddaf2458ee53454556e26a8de2  Scribe.apk
 f84aa3179bad1c108a2640c3b60c1d26db6943475acb360ec466dc677ef0106c  Solitaire.apk
 960f6e46b13610e2d5b889b1d8f5239dd4c16cfdb30c33f8c7c70b4a9d2d754a  Speak.apk
 35c307ff588a340a782b74e048897ae70e18ce3d48eafa5449e906b4e261c951  Sudoku.apk
