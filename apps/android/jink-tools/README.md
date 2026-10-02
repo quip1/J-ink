@@ -1,0 +1,33 @@
+# J-ink Tools APKs
+
+Built automatically from [`src/jink-tools`](../../../src/jink-tools) by the
+"Build J-ink Tools" GitHub Actions workflow, from commit `251a936`.
+Install any of them on your e-ink device; see the main README for how.
+
+## Checksums (SHA-256)
+
+```
+61ffeee9a9a790e57083935e38084e63596a8ce7a4bf2c6fc884d9103929d434  Calc.apk
+533d7581251ff8d34072f250ddfb1b32c5aba44b397ef3e94ff3c81f0487c4b2  CharacterSheet.apk
+1d2d010fbc7dde13c1c730d93cbff441e789039a09f0f87a3824b5c730ac9bfa  Chess.apk
+d28b44ab95bb1dde88e2d4a7c33e902d1a81d2f99c561746cdce59cd7fb5c1ae  DMTools.apk
+db42fb46b6c4a958e76b85406f3f1b899a13a8028496e287278186c6cf9ed5e1  Dice.apk
+4ad9676d4d4c47deeba966274ef375a448da607bc9e3d84cc01cf17e5b691cfe  Feeds.apk
+4879bf793fff7ec02ad78a412a179cb5bbdca970fc031f77cf8bcca124a1cf9d  Filer.apk
+651930cfacfa6ce168c2625a9080f2d52b463c40e3cdbd17f1a31c95aee24614  Flashcards.apk
+0de911954f3998149e38542b330d66ab4a9fdb049da2b80175af6957d59f1aab  Focus.apk
+cb23c49ba2ecb21ffff18e0256a349524314613517a9456a458b6a3bd40cb29c  Habits.apk
+d1dc01b11b67ad3fbce1db0709aa4733b840432a54f41741145b47ac2d5548b9  Initiative.apk
+142294bb32e384fa51759164c7af21c0076ecbd1de94c88acf9e907f0f2679d1  Inkprint.apk
+a01da83b70de007e5e7fcd84d5049b98504e188ca3a41c96d5a67e622edbd2a5  Journal.apk
+57750cef7cce95876b65275fbe86b77e5cdfa53f92bd2772041c14931c3d5d53  Lists.apk
+11f3984d59acfd2e7ce93b48c44c6e7a094adfb93d1cbae240626e2d5c1e461c  ReadLog.apk
+d87de22ccd7778e1306c8f79ff5775d83a0b8a4f84006bccaaa48b91e5109038  Scribe.apk
+50e25daa2a98fdd9793dc7c24a5aaa1fd8f15a8ee82b2e1c4980e97c2519c017  Solitaire.apk
+e25fa7884b6189d78285eb2983aacee7c5de0668e4866be84d08a695f54d24ce  Speak.apk
+372e99fe304a774159bb320341069b4f2d9afbeafde9569021b142d67e418088  Sudoku.apk
+c8864318b6b681c92503e2878f9fca3be1eb275a97a199591dcd34680f52ab96  Timer.apk
+c390c3a3181506e8148e33a5df68aff6bbc47650e6552cd14a484b4500672365  Typewriter.apk
+89bfd4b573af641e81efff43e9842adfeb34a418e65646776b67e8ab48189b46  Weather.apk
+488733ed33663e69c6c10f3becb3c35f3c379851fe040931bf19cb523211e680  WordSearch.apk
+```
