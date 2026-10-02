@@ -15,3 +15,9 @@ include ':typewriter', ':journal'
 include ':sudoku', ':solitaire', ':chess', ':wordsearch'
 // Files
 include ':filer'
+// Everyday
+include ':lists', ':habits', ':calc', ':timer'
+// Reading & listening
+include ':speak', ':feeds', ':weather'
+// Study
+include ':flashcards'

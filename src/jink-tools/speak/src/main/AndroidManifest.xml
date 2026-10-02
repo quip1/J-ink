@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+  <queries>
+    <intent><action android:name="android.intent.action.TTS_SERVICE"/></intent>
+  </queries>
+  <application android:label="Speak" android:icon="@drawable/ic_launcher"
+      android:allowBackup="true" android:theme="@style/Theme.Ink">
+    <activity android:name=".MainActivity" android:exported="true" android:launchMode="singleTask"
+        android:windowSoftInputMode="adjustResize|stateHidden">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+      <!-- "Share -> Speak" for text, and "Open with -> Speak" for text files. -->
+      <intent-filter android:label="Read aloud">
+        <action android:name="android.intent.action.SEND"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <data android:mimeType="text/*"/>
+      </intent-filter>
+      <intent-filter android:label="Read aloud">
+        <action android:name="android.intent.action.VIEW"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <data android:scheme="content"/>
+        <data android:mimeType="text/*"/>
+      </intent-filter>
+    </activity>
+  </application>
+</manifest>

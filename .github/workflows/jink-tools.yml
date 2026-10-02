@@ -77,6 +77,14 @@ jobs:
           chess Chess
           wordsearch WordSearch
           filer Filer
+          lists Lists
+          habits Habits
+          calc Calc
+          timer Timer
+          speak Speak
+          feeds Feeds
+          weather Weather
+          flashcards Flashcards
           EOF
           {
             echo "# J-ink Tools APKs"

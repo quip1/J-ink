@@ -24,9 +24,11 @@ fetch() { # path-in-maven, local-name
 fetch org/robolectric/android-all/14-robolectric-10818077/android-all-14-robolectric-10818077.jar android-all-14.jar
 fetch junit/junit/4.13.2/junit-4.13.2.jar junit-4.13.2.jar
 fetch org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar hamcrest-core-1.3.jar
+# Real org.json for tests of code that parses JSON (Android has it built in; plain JVMs don't).
+fetch org/json/json/20240303/json-20240303.jar json-20240303.jar
 
 ANDROID="$CACHE/android-all-14.jar"
-JUNIT="$CACHE/junit-4.13.2.jar:$CACHE/hamcrest-core-1.3.jar"
+JUNIT="$CACHE/junit-4.13.2.jar:$CACHE/hamcrest-core-1.3.jar:$CACHE/json-20240303.jar"
 OUT="$(mktemp -d)"
 trap 'rm -rf "$OUT"' EXIT
 

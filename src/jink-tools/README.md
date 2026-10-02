@@ -1,6 +1,6 @@
 # J-ink Tools
 
-Fourteen small Android apps for e-ink devices, in one Gradle project. They share an e-ink UI library
+Twenty-two small Android apps for e-ink devices, in one Gradle project. They share an e-ink UI library
 (`common/`), and each app builds its own APK. Like Font Drop, Slate and Folio, they're plain Java on
 the Android framework: no AndroidX, no other dependencies.
 
@@ -23,6 +23,14 @@ work on any Android 8.0+ device.
 | Games | **Chess** | `chess` | Play the computer (four levels) as either colour, or two players. Full rules, including castling, en passant, promotion, and the draw rules. Move list, undo, flip. |
 | Games | **Word Search** | `wordsearch` | Eight themes, three sizes. Tap the first letter of a word, then its last. |
 | Files | **Filer** | `filer` | File manager: browse, rename, copy, move (pick files, go to the destination, tap Paste), delete, share, open with other apps. Zip files: create, browse inside, extract, add, rename and remove entries. Built-in text editor; tap an APK to install it. |
+| Everyday | **Lists** | `lists` | To-do lists and checklists. Ticked items sink to the bottom; untick all to reuse a packing or grocery list. Share text to it to make a list. |
+| Everyday | **Habits** | `habits` | Tick daily habits; streaks, the last 7 days at a glance, and a monthly calendar per habit. |
+| Everyday | **Calc** | `calc` | Big-button calculator (brackets, powers, %, √, history) and a unit converter (length, weight, temperature, volume, speed, area, data, time). |
+| Everyday | **Timer** | `timer` | Stopwatch with laps, and any number of named countdowns that beep even when the app is closed. |
+| Reading & listening | **Speak** | `speak` | Reads text aloud with your device's voice: paste, open a file, or share text to it. Highlights the current sentence; tap any sentence to jump there. |
+| Reading & listening | **Feeds** | `feeds` | RSS/Atom reader. Saves each article as clean text when it updates, so you can read offline a page at a time (volume keys). Add a feed or any website. |
+| Reading & listening | **Weather** | `weather` | Current weather, next hours and the week, from Open-Meteo (free, no account). Several places, °C or °F. |
+| Study | **Flashcards** | `flashcards` | Spaced-repetition decks (like Anki): cards you know come back less often. Import cards from CSV/TSV. |
 
 ## E-ink rules every app follows
 
